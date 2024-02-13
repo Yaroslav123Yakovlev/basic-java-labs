@@ -1,6 +1,7 @@
 package edu.ntudp.fit.yakovlev;
-import java.util.Scanner;
+
 import java.util.Random;
+import java.util.Scanner;
 
 public class Lab2 {
 
@@ -28,6 +29,9 @@ public class Lab2 {
         if (matrix != null) {
             System.out.println("Матриця:");
             printMatrix(matrix);
+            findMinMax(matrix);
+            calcArAver(matrix);
+            calcGeoAver(matrix);
         } else {
             System.out.println("Неможливо створити матрицю.");
         }
@@ -44,7 +48,7 @@ public class Lab2 {
         int cols = scanner.nextInt();
 
         if (rows <= 0 || rows > MAX_SIZE || cols <= 0 || cols > MAX_SIZE) {
-            System.out.println("Неприпустимі розміри матриці.");
+            System.out.println("Незадовільні розміри матриці.");
             return null;
         }
 
@@ -69,7 +73,7 @@ public class Lab2 {
         int cols = scanner.nextInt();
 
         if (rows <= 0 || rows > MAX_SIZE || cols <= 0 || cols > MAX_SIZE) {
-            System.out.println("Неприпустимі розміри матриці.");
+            System.out.println("Незадовільні розміри матриці.");
             return null;
         }
 
@@ -93,6 +97,58 @@ public class Lab2 {
             }
             System.out.println();
         }
+    }
+
+    //Пошук мін./макс. елемента матриці
+    public static void findMinMax(int[][] matrix) {
+        int min = matrix[0][0];
+        int max = matrix[0][0];
+
+        for (int[] row : matrix) {
+            for (int elem : row) {
+                if (elem < min) {
+                    min = elem;
+                }
+                if (elem > max) {
+                    max = elem;
+                }
+            }
+        }
+
+        System.out.println("Мінімальний елемент матриці: " + min);
+        System.out.println("Максимальний елемент матриці: " + max);
+    }
+
+    //Пошук серед. арифм. матриці
+    public static void calcArAver(int[][] matrix) {
+        int sum = 0;
+        int i = 0;
+
+        for (int[] row : matrix) {
+            for (int elem : row) {
+                sum += elem;
+                i++;
+            }
+        }
+
+        double aver = (double) sum / i;
+        System.out.println("Середнє арифметичне матриці: " + aver);
+    }
+
+    //Пошук серед. геометр. матриці
+    public static void calcGeoAver(int[][] matrix) {
+        long mult = 1;
+        int rootNumb = 0;
+
+        for (int[] row : matrix) {
+            for (int elem : row) {
+                mult *= elem;
+                rootNumb++;
+            }
+        }
+
+        double geoAver = Math.pow(mult, 1.0 / rootNumb);
+        System.out.println("Середнє геометричне матриці: " + geoAver);
     }
 
 }

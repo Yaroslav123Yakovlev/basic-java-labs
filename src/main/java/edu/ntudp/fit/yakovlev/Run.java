@@ -17,8 +17,10 @@ public class Run {
 
         JsonManager jsonManager = new JsonManager();
         jsonManager.writeToJson(univer1,"json1");
+
+        System.out.println("------------------------------------------------------------");
+
         University univer2 = JsonManager.readFromJson("json1");
-        
         PrintUniver.printUniversityTree(univer2);
     }
     public static University createTypicalUniversity(){

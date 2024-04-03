@@ -7,11 +7,13 @@ public class Lab2 {
     private static final int MAX_SIZE_OF_MATRIX = 20;
     private static final int MIN_VALUE_OF_RANDOM_NUMBER = 1;
     private static final int MAX_VALUE_OF_RANDOM_NUMBER = 10;
+    private static final String ROW_INPUT = "Enter number of matrix rows: ";
+    private static final String COLUMNS_INPUT = "Enter number of matrix columns: ";
 
     public int[][] InputMatrixFromKeyboard(Scanner Scanner) {
-        System.out.print("Enter number of matrix rows: ");
+        System.out.print(ROW_INPUT);
         int Rows = Scanner.nextInt();
-        System.out.print("Enter the number of matrix columns: ");
+        System.out.print(COLUMNS_INPUT);
         int Columns = Scanner.nextInt();
 
         if (Rows <= 0 || Rows > MAX_SIZE_OF_MATRIX || Columns <= 0 || Columns > MAX_SIZE_OF_MATRIX) {
@@ -32,9 +34,9 @@ public class Lab2 {
     }
 
     public int[][] GenerateMatrixFromRandomNumbers(Scanner Scanner) {
-        System.out.print("Enter number of matrix rows: ");
+        System.out.print(ROW_INPUT);
         int Rows = Scanner.nextInt();
-        System.out.print("Enter the number of matrix columns: ");
+        System.out.print(COLUMNS_INPUT);
         int Columns = Scanner.nextInt();
 
         if (Rows <= 0 || Rows > MAX_SIZE_OF_MATRIX || Columns <= 0 || Columns > MAX_SIZE_OF_MATRIX) {

@@ -2,7 +2,7 @@ package edu.ntudp.fit.yakovlev.lab2;
 import java.util.Scanner;
 import java.util.Random;
 
-public class Lab2 {
+public class MatrixOperation {
 
     private static final int MAX_SIZE_OF_MATRIX = 20;
     private static final int MIN_VALUE_OF_RANDOM_NUMBER = 1;
@@ -10,7 +10,7 @@ public class Lab2 {
     private static final String ROW_INPUT = "Enter number of matrix rows: ";
     private static final String COLUMNS_INPUT = "Enter number of matrix columns: ";
 
-    public int[][] InputMatrixFromKeyboard(Scanner Scanner) {
+    public int[][] inputMatrixFromKeyboard(Scanner Scanner) {
         System.out.print(ROW_INPUT);
         int Rows = Scanner.nextInt();
         System.out.print(COLUMNS_INPUT);
@@ -33,7 +33,7 @@ public class Lab2 {
         return Matrix;
     }
 
-    public int[][] GenerateMatrixFromRandomNumbers(Scanner Scanner) {
+    public int[][] generateMatrixFromRandomNumbers(Scanner Scanner) {
         System.out.print(ROW_INPUT);
         int Rows = Scanner.nextInt();
         System.out.print(COLUMNS_INPUT);
@@ -56,7 +56,7 @@ public class Lab2 {
         return Matrix;
     }
 
-    public void ConsolePrintMatrix(int[][] Matrix) {
+    public void printMatrixInConsole(int[][] Matrix) {
         for (int[] Row : Matrix) {
             for (int Element : Row) {
                 System.out.print(Element+ "\t");
@@ -65,53 +65,53 @@ public class Lab2 {
         }
     }
 
-    public void FindMinimumMaximumOfMatrix(int[][] Matrix) {
-        int Min = Matrix[0][0];
-        int Max = Matrix[0][0];
+    public void findMinMaxOfMatrix(int[][] Matrix) {
+        int min = Matrix[0][0];
+        int max = Matrix[0][0];
 
         for (int[] Row : Matrix) {
             for (int Element : Row) {
-                if (Element < Min) {
-                    Min = Element;
+                if (Element < min) {
+                    min = Element;
                 }
-                if (Element > Max) {
-                    Max = Element;
+                if (Element > max) {
+                    max = Element;
                 }
             }
         }
 
-        System.out.println("Minimum matrix element: " + Min);
-        System.out.println("Maximum matrix element: " + Max);
+        System.out.println("Minimum matrix element: " + min);
+        System.out.println("Maximum matrix element: " + max);
     }
 
-    public void CalculatingArithmeticMean(int[][] Matrix) {
-        double Sum = 0;
-        int Counter = 0;
+    public void calculatingArithmeticMean(int[][] Matrix) {
+        double sum = 0;
+        int counter = 0;
 
         for (int[] Row : Matrix) {
             for (int Element : Row) {
-                Sum += Element;
-                Counter++;
+                sum += Element;
+                counter++;
             }
         }
 
-        double ArithmeticMean = Sum / Counter;
-        System.out.println("Arithmetic mean of the matrix: " + ArithmeticMean);
+        double arithmeticMean = sum / counter;
+        System.out.println("Arithmetic mean of the matrix: " + arithmeticMean);
     }
 
-    public void CalculatingGeometricMean(int[][] Matrix) {
-        double NumbersProduct = 1;
-        int RootNumber = 0;
+    public void calculatingGeometricMean(int[][] Matrix) {
+        double numbersProduct = 1;
+        int rootNumber = 0;
 
         for (int[] Row : Matrix) {
             for (int Element : Row) {
-                NumbersProduct *= Element;
-                RootNumber++;
+                numbersProduct *= Element;
+                rootNumber++;
             }
         }
 
-        double GeometricMean = Math.pow(NumbersProduct, (double) 1 / RootNumber);
-        System.out.println("Geometric mean of the matrix: " + GeometricMean);
+        double geometricMean = Math.pow(numbersProduct, (double) 1 / rootNumber);
+        System.out.println("Geometric mean of the matrix: " + geometricMean);
     }
 
 }

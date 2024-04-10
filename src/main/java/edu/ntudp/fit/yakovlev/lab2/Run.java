@@ -10,11 +10,11 @@ public class Run {
         MatrixOperation MatrixOperations = new MatrixOperation();
 
         System.out.print("Would you like to enter the matrix manually (1) or generate it randomly (2)? : ");
-        int Choice = Scanner.nextInt();
+        int choice = Scanner.nextInt();
 
-        if (Choice == 1) {
+        if (choice == 1) {
             Matrix = MatrixOperations.inputMatrixFromKeyboard(Scanner);
-        } else if (Choice == 2) {
+        } else if (choice == 2) {
             Matrix = MatrixOperations.generateMatrixFromRandomNumbers(Scanner);
         } else {
             System.out.println("Wrong choice.");

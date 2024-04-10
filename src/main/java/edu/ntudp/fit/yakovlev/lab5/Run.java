@@ -1,5 +1,6 @@
 package edu.ntudp.fit.yakovlev.lab5;
 
+import java.util.Scanner;
 import java.sql.*;
 
 
@@ -11,11 +12,24 @@ public class Run {
                 "root",
                 "dpntu2024")
         ){
-            String selectQueryOne = "SELECT * FROM students";
-            PreparedStatement PreparedStatement = Connection.prepareStatement(selectQueryOne);
+            Scanner Scanner = new Scanner(System.in);
+            System.out.print("Enter the month (0 = print all; 1-12 = print by chosen month): ");
+            int choice = Scanner.nextInt();
+            String selectQuery ;
+
+            if (choice == 0) {
+                selectQuery = "SELECT * FROM students";
+            } else if (choice >= 1 & choice <= 12) {
+                selectQuery= "SELECT * FROM students WHERE MONTH(birth_date) =" + choice + " ;";
+            } else {
+                System.out.println("Wrong choice.");
+                return;
+            }
+
+            PreparedStatement PreparedStatement = Connection.prepareStatement(selectQuery);
             ResultSet ResultSet = PreparedStatement.executeQuery();
             System.out.printf("%-6s %-15s %-10s %-15s %-15s %-15s %-15s%n",
-                    "Номер", "Прізвище", "Ім'я", "По батькові", "Дата народження", "ID-студента", "Залікова книжка"
+                    "#", "Last name", "First name", "Middle name", "Birth date", "Student id", "Gradebook id"
             );
 
             while (ResultSet.next()) {

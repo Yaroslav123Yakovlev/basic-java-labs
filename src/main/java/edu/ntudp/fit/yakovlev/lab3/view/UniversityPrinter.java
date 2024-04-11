@@ -5,17 +5,17 @@ import edu.ntudp.fit.yakovlev.lab3.model.*;
 import java.util.List;
 
 public class UniversityPrinter {
-        public void printUniversityComponentTree(UniversityComponent<?> component, String prefix) {
+        public <T> void printUniversityComponentTree(UniversityComponent<T> component, String prefix) {
             Head head = component.getHead();
             System.out.printf("%s└── %s, Head: %s %s%n", prefix, component.getName(), head.getFirstName(), head.getLastName());
 
-            List<?> subComponents = component.getSubComponent();
-            for (Object subComponent : subComponents) {
+            List<T> subComponents = component.getSubComponent();
+            for (T subComponent : subComponents) {
                 String subPrefix = prefix + ("│   ");
                 if (subComponent instanceof Student) {
                     printStudent((Student) subComponent, subPrefix);
                 } else {
-                    printUniversityComponentTree((UniversityComponent<?>) subComponent, subPrefix);
+                    printUniversityComponentTree((UniversityComponent<T>) subComponent, subPrefix);
                 }
             }
         }

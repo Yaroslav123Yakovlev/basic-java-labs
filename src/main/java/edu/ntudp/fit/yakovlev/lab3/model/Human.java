@@ -1,4 +1,4 @@
-package edu.ntudp.fit.yakovlev.lab4.model;
+package edu.ntudp.fit.yakovlev.lab3.model;
 
 import java.util.Objects;
 

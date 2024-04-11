@@ -1,16 +1,16 @@
-package edu.ntudp.fit.yakovlev.lab4.controller;
+package edu.ntudp.fit.yakovlev.lab3.controller;
 
-import edu.ntudp.fit.yakovlev.lab4.model.Faculty;
-import edu.ntudp.fit.yakovlev.lab4.model.Head;
-import edu.ntudp.fit.yakovlev.lab4.model.Student;
-import edu.ntudp.fit.yakovlev.lab4.model.University;
+import edu.ntudp.fit.yakovlev.lab3.model.Faculty;
+import edu.ntudp.fit.yakovlev.lab3.model.Head;
+import edu.ntudp.fit.yakovlev.lab3.model.Student;
+import edu.ntudp.fit.yakovlev.lab3.model.University;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static edu.ntudp.fit.yakovlev.lab4.model.Sex.FEMALE;
-import static edu.ntudp.fit.yakovlev.lab4.model.Sex.MALE;
+import static edu.ntudp.fit.yakovlev.lab3.model.Sex.FEMALE;
+import static edu.ntudp.fit.yakovlev.lab3.model.Sex.MALE;
 
 public class UniversityCreator implements UniversityComponentCreatable<University, Faculty> {
 

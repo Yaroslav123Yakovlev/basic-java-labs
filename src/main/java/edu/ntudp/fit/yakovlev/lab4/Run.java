@@ -1,9 +1,9 @@
 package edu.ntudp.fit.yakovlev.lab4;
 
 
-import edu.ntudp.fit.yakovlev.lab4.controller.UniversityCreator;
-import edu.ntudp.fit.yakovlev.lab4.model.University;
-import edu.ntudp.fit.yakovlev.lab4.view.UniversityPrinter;
+import edu.ntudp.fit.yakovlev.lab3.controller.UniversityCreator;
+import edu.ntudp.fit.yakovlev.lab3.model.University;
+import edu.ntudp.fit.yakovlev.lab3.view.UniversityPrinter;
 
 public class Run {
 
@@ -22,9 +22,9 @@ public class Run {
         System.out.println("New University Structure:");
         System.out.println("-".repeat(SYMBOLS_FILLER));
 
-        JsonManager JsonManager = new JsonManager();
-        JsonManager.writeToJson(oldUniversity,"json1");
-        University newUniversity = JsonManager.readFromJson("json1");
+        JsonManager jsonManager = new JsonManager();
+        jsonManager.writeToJson(oldUniversity,"json1");
+        University newUniversity = jsonManager.readFromJson("json1");
 
         universityPrinter.printUniversityTree(newUniversity);
     }

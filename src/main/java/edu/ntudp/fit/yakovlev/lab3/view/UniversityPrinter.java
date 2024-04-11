@@ -1,6 +1,6 @@
-package edu.ntudp.fit.yakovlev.lab4.view;
+package edu.ntudp.fit.yakovlev.lab3.view;
 
-import edu.ntudp.fit.yakovlev.lab4.model.*;
+import edu.ntudp.fit.yakovlev.lab3.model.*;
 
 import java.util.List;
 

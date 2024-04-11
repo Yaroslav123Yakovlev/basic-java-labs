@@ -1,7 +1,7 @@
 package edu.ntudp.fit.yakovlev.lab4;
 
 import com.google.gson.Gson;
-import edu.ntudp.fit.yakovlev.lab4.model.University;
+import edu.ntudp.fit.yakovlev.lab3.model.University;
 
 import java.io.FileReader;
 import java.io.FileWriter;

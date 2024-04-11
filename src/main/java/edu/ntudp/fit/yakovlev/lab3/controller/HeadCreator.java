@@ -1,7 +1,7 @@
-package edu.ntudp.fit.yakovlev.lab4.controller;
+package edu.ntudp.fit.yakovlev.lab3.controller;
 
-import edu.ntudp.fit.yakovlev.lab4.model.Head;
-import edu.ntudp.fit.yakovlev.lab4.model.Sex;
+import edu.ntudp.fit.yakovlev.lab3.model.Head;
+import edu.ntudp.fit.yakovlev.lab3.model.Sex;
 
 
 public class HeadCreator implements HumanCreatable<Head> {

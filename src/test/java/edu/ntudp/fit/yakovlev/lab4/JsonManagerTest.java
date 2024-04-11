@@ -1,7 +1,7 @@
 package edu.ntudp.fit.yakovlev.lab4;
 
-import edu.ntudp.fit.yakovlev.lab4.controller.UniversityCreator;
-import edu.ntudp.fit.yakovlev.lab4.model.University;
+import edu.ntudp.fit.yakovlev.lab3.controller.UniversityCreator;
+import edu.ntudp.fit.yakovlev.lab3.model.University;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

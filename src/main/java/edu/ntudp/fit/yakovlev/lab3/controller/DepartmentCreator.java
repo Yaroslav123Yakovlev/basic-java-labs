@@ -1,8 +1,8 @@
-package edu.ntudp.fit.yakovlev.lab4.controller;
+package edu.ntudp.fit.yakovlev.lab3.controller;
 
-import edu.ntudp.fit.yakovlev.lab4.model.Department;
-import edu.ntudp.fit.yakovlev.lab4.model.Group;
-import edu.ntudp.fit.yakovlev.lab4.model.Head;
+import edu.ntudp.fit.yakovlev.lab3.model.Department;
+import edu.ntudp.fit.yakovlev.lab3.model.Group;
+import edu.ntudp.fit.yakovlev.lab3.model.Head;
 
 import java.util.ArrayList;
 import java.util.Collections;

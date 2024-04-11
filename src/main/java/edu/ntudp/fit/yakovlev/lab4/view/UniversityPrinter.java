@@ -6,49 +6,49 @@ import java.util.List;
 
 public class UniversityPrinter {
 
-    public void printUniversityTree(University University) {
-        Head head = University.getHead();
-        System.out.println("└── " + University.getName()+ " University, Head: "+ head.getFirstName() + " " + head.getLastName());
+    public void printUniversityTree(University university) {
+        Head head = university.getHead();
+        System.out.println("└── " + university.getName()+ " University, Head: "+ head.getFirstName() + " " + head.getLastName());
 
-        List<Faculty> Faculties = University.getSubComponent();
-        for (int i = 0; i < Faculties.size(); i++) {
-            Faculty Faculty = Faculties.get(i);
-            boolean isLast = (i == Faculties.size() - 1);
-            printFacultyTree(Faculty, (isLast ? "    " : "│   "));
+        List<Faculty> faculties = university.getSubComponent();
+        for (int i = 0; i < faculties.size(); i++) {
+            Faculty faculty = faculties.get(i);
+            boolean isLast = (i == faculties.size() - 1);
+            printFacultyTree(faculty, (isLast ? "    " : "│   "));
         }
     }
 
-    public void printFacultyTree(Faculty Faculty, String prefix) {
-        Head head = Faculty.getHead();
-        System.out.println(prefix + "└── " + Faculty.getName() + " Faculty, Head: "+ head.getFirstName() + " " + head.getLastName());
+    public void printFacultyTree(Faculty faculty, String prefix) {
+        Head head = faculty.getHead();
+        System.out.println(prefix + "└── " + faculty.getName() + " Faculty, Head: "+ head.getFirstName() + " " + head.getLastName());
 
-        List<Department> Departments = Faculty.getSubComponent();
-        for (int i = 0; i < Departments.size(); i++) {
-            Department Department = Departments.get(i);
-            boolean isLast = (i == Departments.size() - 1);
-            printDepartmentTree(Department, prefix + (isLast ? "    " : "│   "));
+        List<Department> departments = faculty.getSubComponent();
+        for (int i = 0; i < departments.size(); i++) {
+            Department department = departments.get(i);
+            boolean isLast = (i == departments.size() - 1);
+            printDepartmentTree(department, prefix + (isLast ? "    " : "│   "));
         }
     }
 
-    public void printDepartmentTree(Department Department, String prefix) {
-        Head head = Department.getHead();
-        System.out.println(prefix + "└── " + Department.getName() + " Department, Head: "+ head.getFirstName() + " " + head.getLastName());
+    public void printDepartmentTree(Department department, String prefix) {
+        Head head = department.getHead();
+        System.out.println(prefix + "└── " + department.getName() + " Department, Head: "+ head.getFirstName() + " " + head.getLastName());
 
-        List<Group> Groups = Department.getSubComponent();
-        for (int i = 0; i < Groups.size(); i++) {
-            Group Group = Groups.get(i);
-            boolean isLast = (i == Groups.size() - 1);
-            printGroupTree(Group, prefix + (isLast ? "    " : "│   "));
+        List<Group> groups = department.getSubComponent();
+        for (int i = 0; i < groups.size(); i++) {
+            Group group = groups.get(i);
+            boolean isLast = (i == groups.size() - 1);
+            printGroupTree(group, prefix + (isLast ? "    " : "│   "));
         }
     }
 
-    public void printGroupTree(Group Group, String prefix) {
-        Head head = Group.getHead();
-        System.out.println(prefix + "└── " + Group.getName() + " Group, Head: "+ head.getFirstName() + " " + head.getLastName());
+    public void printGroupTree(Group group, String prefix) {
+        Head head = group.getHead();
+        System.out.println(prefix + "└── " + group.getName() + " Group, Head: "+ head.getFirstName() + " " + head.getLastName());
 
-        List<Student> Students = Group.getSubComponent();
-        for (Student Student : Students) {
-            System.out.println(prefix + "    └── " + Student.getFirstName() + " " + Student.getLastName() + " (Student)");
+        List<Student> students = group.getSubComponent();
+        for (Student student : students) {
+            System.out.println(prefix + "    └── " + student.getFirstName() + " " + student.getLastName() + " (Student)");
         }
     }
 }

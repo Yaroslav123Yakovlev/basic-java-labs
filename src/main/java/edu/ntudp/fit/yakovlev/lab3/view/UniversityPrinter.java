@@ -2,48 +2,29 @@ package edu.ntudp.fit.yakovlev.lab3.view;
 
 import edu.ntudp.fit.yakovlev.lab3.model.*;
 
+import java.util.List;
+
 public class UniversityPrinter {
-    public void printUniversityTree(University university) {
-        Head head = university.getHead();
-        System.out.printf("%s University, Head: %s %s%n",
-                university.getName(), head.getFirstName(), head.getLastName());
+        public void printUniversityComponentTree(UniversityComponent<?> component, String prefix) {
+            Head head = component.getHead();
+            System.out.printf("%s└── %s, Head: %s %s%n", prefix, component.getName(), head.getFirstName(), head.getLastName());
 
-        for (Faculty faculty : university.getSubComponent()) {
-            printFacultyTree(faculty, "    ");
+            List<?> subComponents = component.getSubComponent();
+            for (Object subComponent : subComponents) {
+                String subPrefix = prefix + ("│   ");
+                if (subComponent instanceof Student) {
+                    printStudent((Student) subComponent, subPrefix);
+                } else {
+                    printUniversityComponentTree((UniversityComponent<?>) subComponent, subPrefix);
+                }
+            }
         }
-    }
 
-    public void printFacultyTree(Faculty faculty, String prefix) {
-        Head head = faculty.getHead();
-        System.out.printf(prefix + "└── %s Faculty, Head: %s %s%n",
-                faculty.getName(), head.getFirstName(), head.getLastName());
-
-        for (Department department : faculty.getSubComponent()) {
-            printDepartmentTree(department, prefix + "│   ");
+        public void printStudent(Student student, String prefix) {
+            System.out.printf("%s└── %s %s (Student)%n", prefix, student.getFirstName(), student.getLastName());
         }
+
     }
-
-    public void printDepartmentTree(Department department, String prefix) {
-        Head head = department.getHead();
-        System.out.printf(prefix + "└── %s Department, Head: %s %s%n",
-                department.getName(), head.getFirstName(), head.getLastName());
-
-        for (Group group : department.getSubComponent()) {
-            printGroupTree(group, prefix + "│   ");
-        }
-    }
-
-    public void printGroupTree(Group group, String prefix) {
-        Head head = group.getHead();
-        System.out.printf(prefix + "└── %s Group, Head: %s %s%n",
-                group.getName(), head.getFirstName(), head.getLastName());
-
-        for (Student student : group.getSubComponent()) {
-            System.out.printf(prefix + "│    └── %s %s (Student)%n",
-                    student.getFirstName(), student.getLastName());
-        }
-    }
-}
 
 
 

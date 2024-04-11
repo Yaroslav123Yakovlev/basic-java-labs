@@ -16,7 +16,7 @@ public class Run {
 
         University oldUniversity = new UniversityCreator().createTypicalUniversity();
         UniversityPrinter universityPrinter = new UniversityPrinter();
-        universityPrinter.printUniversityTree(oldUniversity);
+        universityPrinter.printUniversityComponentTree(oldUniversity,"│");
 
         System.out.println("-".repeat(SYMBOLS_FILLER));
         System.out.println("New University Structure:");
@@ -26,7 +26,7 @@ public class Run {
         jsonManager.writeToJson(oldUniversity,"json1");
         University newUniversity = jsonManager.readFromJson("json1");
 
-        universityPrinter.printUniversityTree(newUniversity);
+        universityPrinter.printUniversityComponentTree(newUniversity,"│");
     }
 
 }

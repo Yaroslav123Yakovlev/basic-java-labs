@@ -5,7 +5,7 @@ import edu.ntudp.fit.yakovlev.lab3.model.*;
 public class UniversityPrinter {
     public void printUniversityTree(University university) {
         Head head = university.getHead();
-        System.out.printf("└── %s University, Head: %s %s%n",
+        System.out.printf("%s University, Head: %s %s%n",
                 university.getName(), head.getFirstName(), head.getLastName());
 
         for (Faculty faculty : university.getSubComponent()) {

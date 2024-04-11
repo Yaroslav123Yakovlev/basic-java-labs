@@ -22,6 +22,8 @@ public class Run {
             if (readyQuery == null) { return; }
             sqlManager.printResultSet(connection,readyQuery);
 
+            scanner.close();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

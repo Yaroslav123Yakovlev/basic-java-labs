@@ -22,8 +22,8 @@ public class FacultyCreator implements UniversityComponentCreatable<Faculty, Dep
         if (subComponentsOfUniversity == null){
             return null;
         }
-        List<Department> DepartmentList = new ArrayList<>();
-        Collections.addAll(DepartmentList, subComponentsOfUniversity);
-        return new Faculty(name, DepartmentList, head);
+        List<Department> departmentList = new ArrayList<>();
+        Collections.addAll(departmentList, subComponentsOfUniversity);
+        return new Faculty(name, departmentList, head);
     }
 }

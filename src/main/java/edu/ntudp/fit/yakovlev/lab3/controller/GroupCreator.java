@@ -22,8 +22,8 @@ public class GroupCreator implements UniversityComponentCreatable<Group, Student
         if (subComponentsOfUniversity == null){
             return null;
         }
-        List<Student> StudentList = new ArrayList<>();
-        Collections.addAll(StudentList, subComponentsOfUniversity);
-        return new Group(name, StudentList, head);
+        List<Student> studentList = new ArrayList<>();
+        Collections.addAll(studentList, subComponentsOfUniversity);
+        return new Group(name, studentList, head);
     }
 }

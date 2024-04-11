@@ -27,9 +27,9 @@ public class UniversityCreator implements UniversityComponentCreatable<Universit
         if (subComponentsOfUniversity == null){
             return null;
         }
-        List<Faculty> FacultyList = new ArrayList<>();
-        Collections.addAll(FacultyList, subComponentsOfUniversity);
-        return new University(name, FacultyList, head);
+        List<Faculty> facultyList = new ArrayList<>();
+        Collections.addAll(facultyList, subComponentsOfUniversity);
+        return new University(name, facultyList, head);
     }
 
     public University createTypicalUniversity(){

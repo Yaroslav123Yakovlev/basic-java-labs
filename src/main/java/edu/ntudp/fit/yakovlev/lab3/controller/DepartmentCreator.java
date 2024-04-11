@@ -23,8 +23,8 @@ public class DepartmentCreator implements UniversityComponentCreatable<Departmen
         if (subComponentsOfUniversity == null){
             return null;
         }
-        List<Group> GroupList = new ArrayList<>();
-        Collections.addAll(GroupList, subComponentsOfUniversity);
-        return new Department(name, GroupList, head);
+        List<Group> groupList = new ArrayList<>();
+        Collections.addAll(groupList, subComponentsOfUniversity);
+        return new Department(name, groupList, head);
     }
 }

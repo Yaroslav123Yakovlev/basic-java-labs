@@ -5,44 +5,22 @@ import java.sql.*;
 
 
 public class Run {
-
+    private static final String URL_SQL_JDBC_CONNECTION = "jdbc:mysql://localhost:3306/java_labs";
+    private static final String USER_SQL_JDBC_CONNECTION = "root";
+    private static final String PASSWORD_SQL_JDBC_CONNECTION = "dpntu2024";
     public static void main(String[] args) {
-        try (Connection Connection = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/java_labs",
-                "root",
-                "dpntu2024")
+        try (Connection connection = DriverManager.getConnection(
+                URL_SQL_JDBC_CONNECTION,
+                USER_SQL_JDBC_CONNECTION,
+                PASSWORD_SQL_JDBC_CONNECTION
+                )
         ){
-            Scanner Scanner = new Scanner(System.in);
-            System.out.print("Enter the month (0 = print all; 1-12 = print by chosen month): ");
-            int choice = Scanner.nextInt();
-            String selectQuery ;
+            Scanner scanner = new Scanner(System.in);
+            SQLManager sqlManager = new SQLManager();
 
-            if (choice == 0) {
-                selectQuery = "SELECT * FROM students";
-            } else if (choice >= 1 & choice <= 12) {
-                selectQuery= "SELECT * FROM students WHERE MONTH(birth_date) =" + choice + " ;";
-            } else {
-                System.out.println("Wrong choice.");
-                return;
-            }
-
-            PreparedStatement PreparedStatement = Connection.prepareStatement(selectQuery);
-            ResultSet ResultSet = PreparedStatement.executeQuery();
-            System.out.printf("%-6s %-15s %-10s %-15s %-15s %-15s %-15s%n",
-                    "#", "Last name", "First name", "Middle name", "Birth date", "Student id", "Gradebook id"
-            );
-
-            while (ResultSet.next()) {
-                System.out.printf("%-6s %-15s %-10s %-15s %-15s %-15s %-15s%n",
-                        ResultSet.getInt("id"),
-                        ResultSet.getString("last_name"),
-                        ResultSet.getString("first_name"),
-                        ResultSet.getString("middle_name"),
-                        ResultSet.getDate("birth_date"),
-                        ResultSet.getString("student_id"),
-                        ResultSet.getString("gradebook_id")
-                );
-            }
+            String readyQuery = sqlManager.selectQuery(scanner);
+            if (readyQuery == null) { return; }
+            sqlManager.printResultSet(connection,readyQuery);
 
         } catch (SQLException e) {
             e.printStackTrace();

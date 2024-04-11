@@ -33,63 +33,63 @@ public class UniversityCreator implements UniversityComponentCreatable<Universit
     }
 
     public University createTypicalUniversity(){
-        HeadCreator HeadCreator = new HeadCreator();
-        StudentCreator StudentCreator = new StudentCreator();
-        GroupCreator GroupCreator = new GroupCreator();
-        DepartmentCreator DepartmentCreator = new DepartmentCreator();
-        FacultyCreator FacultyCreator = new FacultyCreator();
+        HeadCreator headCreator = new HeadCreator();
+        StudentCreator studentCreator = new StudentCreator();
+        GroupCreator groupCreator = new GroupCreator();
+        DepartmentCreator departmentCreator = new DepartmentCreator();
+        FacultyCreator facultyCreator = new FacultyCreator();
 
-        Head UniversityHead = HeadCreator.create("Anne","A","A",FEMALE,"U1");
-        Head FacultyFirstHead = HeadCreator.create("Bob","B","B",MALE,"U2");
-        Head FacultySecondHead = HeadCreator.create("Camila","C","C",FEMALE,"U3");
-        Head DepartmentFirstHead = HeadCreator.create("David","D","D",MALE,"U4");
-        Head DepartmentSecondHead = HeadCreator.create("Ella","E","E",FEMALE,"U5");
-        Head DepartmentThirdHead = HeadCreator.create("Fred","F","F",MALE,"U6");
-        Head DepartmentFourthHead = HeadCreator.create("Gabriella","G","G",FEMALE,"U7");
-        Head GroupFirstHead = HeadCreator.create("Harry","H","H",MALE,"U8");
-        Head GroupSecondHead = HeadCreator.create("Isla","I","I",FEMALE,"U9");
-        Head GroupThirdHead = HeadCreator.create("James","J","J",MALE,"U10");
-        Head GroupFourthHead = HeadCreator.create("Kaia","K","K",FEMALE,"U11");
-        Head GroupFifthHead = HeadCreator.create("Lincoln","L","L",MALE,"U12");
-        Head GroupSixthHead = HeadCreator.create("Maya","M","M",FEMALE,"U13");
-        Head GroupSeventhHead = HeadCreator.create("Nathan","N","N",MALE,"U14");
-        Head GroupEighthHead = HeadCreator.create("Octavia","O","O",FEMALE,"U15");
-        Student StudentFirst = StudentCreator.create("John", "Doe", "Middle", MALE, "S001");
-        Student StudentSecond = StudentCreator.create("Alice", "Smith", "Anne", FEMALE, "S002");
-        Student StudentThird = StudentCreator.create("Michael", "Johnson", "Lee", MALE, "S003");
-        Student StudentFourth = StudentCreator.create("Emma", "Brown", "Louise", FEMALE, "S004");
-        Student StudentFifth = StudentCreator.create("James", "Williams", "David", MALE, "S005");
-        Student StudentSixth = StudentCreator.create("Olivia", "Jones", "Grace", FEMALE, "S006");
-        Student StudentSeventh = StudentCreator.create("William", "Taylor", "Edward", MALE, "S007");
-        Student StudentEighth = StudentCreator.create("Sophia", "Anderson", "Rose", FEMALE, "S008");
-        Student StudentNinth = StudentCreator.create("Alexander", "Jackson", "Michael", MALE, "S009");
-        Student StudentTenth = StudentCreator.create("Mia", "Thomas", "Elizabeth", FEMALE, "S010");
-        Student StudentEleventh = StudentCreator.create("Ethan", "Harris", "Benjamin", MALE, "S011");
-        Student StudentTwelfth = StudentCreator.create("Ava", "White", "Nicole", FEMALE, "S012");
-        Student StudentThirteenth = StudentCreator.create("Liam", "Martinez", "Jose", MALE, "S013");
-        Student StudentFourteenth = StudentCreator.create("Isabella", "Garcia", "Maria", FEMALE, "S014");
-        Student StudentFifteenth = StudentCreator.create("Noah", "Rodriguez", "Daniel", MALE, "S015");
-        Student StudentSixteenth = StudentCreator.create("Charlotte", "Lopez", "Samantha", FEMALE, "S016");
+        Head universityHead = headCreator.create("Anne","A","A",FEMALE,"U1");
+        Head facultyFirstHead = headCreator.create("Bob","B","B",MALE,"U2");
+        Head facultySecondHead = headCreator.create("Camila","C","C",FEMALE,"U3");
+        Head departmentFirstHead = headCreator.create("David","D","D",MALE,"U4");
+        Head departmentSecondHead = headCreator.create("Ella","E","E",FEMALE,"U5");
+        Head departmentThirdHead = headCreator.create("Fred","F","F",MALE,"U6");
+        Head departmentFourthHead = headCreator.create("Gabriella","G","G",FEMALE,"U7");
+        Head groupFirstHead = headCreator.create("Harry","H","H",MALE,"U8");
+        Head groupSecondHead = headCreator.create("Isla","I","I",FEMALE,"U9");
+        Head groupThirdHead = headCreator.create("James","J","J",MALE,"U10");
+        Head groupFourthHead = headCreator.create("Kaia","K","K",FEMALE,"U11");
+        Head groupFifthHead = headCreator.create("Lincoln","L","L",MALE,"U12");
+        Head groupSixthHead = headCreator.create("Maya","M","M",FEMALE,"U13");
+        Head groupSeventhHead = headCreator.create("Nathan","N","N",MALE,"U14");
+        Head groupEighthHead = headCreator.create("Octavia","O","O",FEMALE,"U15");
+        Student studentFirst = studentCreator.create("John", "Doe", "Middle", MALE, "S001");
+        Student studentSecond = studentCreator.create("Alice", "Smith", "Anne", FEMALE, "S002");
+        Student studentThird = studentCreator.create("Michael", "Johnson", "Lee", MALE, "S003");
+        Student studentFourth = studentCreator.create("Emma", "Brown", "Louise", FEMALE, "S004");
+        Student studentFifth = studentCreator.create("James", "Williams", "David", MALE, "S005");
+        Student studentSixth = studentCreator.create("Olivia", "Jones", "Grace", FEMALE, "S006");
+        Student studentSeventh = studentCreator.create("William", "Taylor", "Edward", MALE, "S007");
+        Student studentEighth = studentCreator.create("Sophia", "Anderson", "Rose", FEMALE, "S008");
+        Student studentNinth = studentCreator.create("Alexander", "Jackson", "Michael", MALE, "S009");
+        Student studentTenth = studentCreator.create("Mia", "Thomas", "Elizabeth", FEMALE, "S010");
+        Student studentEleventh = studentCreator.create("Ethan", "Harris", "Benjamin", MALE, "S011");
+        Student studentTwelfth = studentCreator.create("Ava", "White", "Nicole", FEMALE, "S012");
+        Student studentThirteenth = studentCreator.create("Liam", "Martinez", "Jose", MALE, "S013");
+        Student studentFourteenth = studentCreator.create("Isabella", "Garcia", "Maria", FEMALE, "S014");
+        Student studentFifteenth = studentCreator.create("Noah", "Rodriguez", "Daniel", MALE, "S015");
+        Student studentSixteenth = studentCreator.create("Charlotte", "Lopez", "Samantha", FEMALE, "S016");
 
-        University UniversityTypical = new UniversityCreator().create("DP NTU UA",UniversityHead,
-                FacultyCreator.create("Math",FacultyFirstHead,
-                        DepartmentCreator.create("Math-fis",DepartmentFirstHead ,
-                                GroupCreator.create("51",GroupFirstHead,StudentFirst,StudentSecond),
-                                GroupCreator.create("52",GroupSecondHead,StudentThird,StudentFourth)),
-                        DepartmentCreator.create("Math-bio",DepartmentSecondHead,
-                                GroupCreator.create("53",GroupThirdHead,StudentFifth,StudentSixth),
-                                GroupCreator.create("54",GroupFourthHead,StudentSeventh,StudentEighth))
+        University universityTypical = new UniversityCreator().create("DP NTU UA",universityHead,
+                facultyCreator.create("Math",facultyFirstHead,
+                        departmentCreator.create("Math-fis",departmentFirstHead ,
+                                groupCreator.create("51",groupFirstHead,studentFirst,studentSecond),
+                                groupCreator.create("52",groupSecondHead,studentThird,studentFourth)),
+                        departmentCreator.create("Math-bio",departmentSecondHead,
+                                groupCreator.create("53",groupThirdHead,studentFifth,studentSixth),
+                                groupCreator.create("54",groupFourthHead,studentSeventh,studentEighth))
                 ),
-                FacultyCreator.create("IT",FacultySecondHead,
-                        DepartmentCreator.create("IT-Soft",DepartmentThirdHead ,
-                                GroupCreator.create("121",GroupFifthHead,StudentNinth,StudentTenth),
-                                GroupCreator.create("122",GroupSixthHead,StudentEleventh,StudentTwelfth)),
-                        DepartmentCreator.create("IT-Engineering",DepartmentFourthHead,
-                                GroupCreator.create("123",GroupSeventhHead,StudentThirteenth,StudentFourteenth),
-                                GroupCreator.create("124",GroupEighthHead,StudentFifteenth,StudentSixteenth))
+                facultyCreator.create("IT",facultySecondHead,
+                        departmentCreator.create("IT-Soft",departmentThirdHead ,
+                                groupCreator.create("121",groupFifthHead,studentNinth,studentTenth),
+                                groupCreator.create("122",groupSixthHead,studentEleventh,studentTwelfth)),
+                        departmentCreator.create("IT-Engineering",departmentFourthHead,
+                                groupCreator.create("123",groupSeventhHead,studentThirteenth,studentFourteenth),
+                                groupCreator.create("124",groupEighthHead,studentFifteenth,studentSixteenth))
                 )
         );
-        return UniversityTypical;
+        return universityTypical;
     }
 
 }

@@ -1,10 +1,10 @@
-package edu.ntudp.fit.yakovlev.lab3.view;
+package edu.ntudp.fit.yakovlev.lab4.view;
 
-import edu.ntudp.fit.yakovlev.lab3.model.*;
+import edu.ntudp.fit.yakovlev.lab4.model.*;
 
 import java.util.List;
 
-public class PrintUniversity {
+public class UniversityPrinter {
 
     public void printUniversityTree(University University) {
         Head head = University.getHead();

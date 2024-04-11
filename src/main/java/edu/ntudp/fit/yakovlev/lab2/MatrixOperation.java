@@ -7,111 +7,120 @@ public class MatrixOperation {
     private static final int MAX_SIZE_OF_MATRIX = 20;
     private static final int MIN_VALUE_OF_RANDOM_NUMBER = 1;
     private static final int MAX_VALUE_OF_RANDOM_NUMBER = 10;
-    private static final String ROW_INPUT = "Enter number of matrix rows: ";
-    private static final String COLUMNS_INPUT = "Enter number of matrix columns: ";
+    private static final String ROW_INPUT_TEXT = "Enter number of matrix rows: ";
+    private static final String COLUMNS_INPUT_TEXT = "Enter number of matrix columns: ";
 
-    public int[][] inputMatrixFromKeyboard(Scanner Scanner) {
-        System.out.print(ROW_INPUT);
-        int Rows = Scanner.nextInt();
-        System.out.print(COLUMNS_INPUT);
-        int Columns = Scanner.nextInt();
+    public int[][] inputMatrixFromKeyboard(Scanner scanner) {
 
-        if (Rows <= 0 || Rows > MAX_SIZE_OF_MATRIX || Columns <= 0 || Columns > MAX_SIZE_OF_MATRIX) {
-            System.out.println("Unsatisfactory matrix dimensions.");
+        int[][] matrix = inputMatrixSize(scanner);
+
+        if (matrix != null){
+            for (int i = 0; i < matrix.length; i++) {
+                for (int j = 0; j < matrix[i].length; j++) {
+                    System.out.print("Enter [" + i + "][" + j + "] matrix element: ");
+                    matrix[i][j] = scanner.nextInt();
+                }
+            }
+            return matrix;
+        }
+        else{
             return null;
         }
 
-        int[][] Matrix = new int[Rows][Columns];
-
-        for (int i = 0; i < Rows; i++) {
-            for (int j = 0; j < Columns; j++) {
-                System.out.print("Enter ["+i+"]["+j+"] matrix element: ");
-                Matrix[i][j] = Scanner.nextInt();
-            }
-        }
-
-        return Matrix;
     }
 
-    public int[][] generateMatrixFromRandomNumbers(Scanner Scanner) {
-        System.out.print(ROW_INPUT);
-        int Rows = Scanner.nextInt();
-        System.out.print(COLUMNS_INPUT);
-        int Columns = Scanner.nextInt();
+    public int[][] generateMatrixFromRandomNumbers(Scanner scanner) {
+        Random random = new Random();
+        int[][] matrix = inputMatrixSize(scanner);
 
-        if (Rows <= 0 || Rows > MAX_SIZE_OF_MATRIX || Columns <= 0 || Columns > MAX_SIZE_OF_MATRIX) {
-            System.out.println("Unsatisfactory matrix dimensions.");
+        if (matrix != null){
+            for (int i = 0; i < matrix.length; i++) {
+                for (int j = 0; j < matrix[i].length; j++) {
+                    matrix[i][j] = random.nextInt(MAX_VALUE_OF_RANDOM_NUMBER - MIN_VALUE_OF_RANDOM_NUMBER + 1) + MIN_VALUE_OF_RANDOM_NUMBER;
+                }
+            }
+            return matrix;
+        }
+        else {
             return null;
         }
-
-        Random Random = new Random();
-        int[][] Matrix = new int[Rows][Columns];
-
-        for (int i = 0; i < Rows; i++) {
-            for (int j = 0; j < Columns; j++) {
-                Matrix[i][j] = Random.nextInt(MAX_VALUE_OF_RANDOM_NUMBER - MIN_VALUE_OF_RANDOM_NUMBER + 1) + MIN_VALUE_OF_RANDOM_NUMBER;
-            }
-        }
-
-        return Matrix;
     }
 
-    public void printMatrixInConsole(int[][] Matrix) {
-        for (int[] Row : Matrix) {
-            for (int Element : Row) {
-                System.out.print(Element+ "\t");
+    public void printMatrixInConsole(int[][] matrix) {
+        for (int[] row : matrix) {
+            for (int element : row) {
+                System.out.print(element+ "\t");
             }
             System.out.println();
         }
     }
 
-    public void findMinMaxOfMatrix(int[][] Matrix) {
-        int min = Matrix[0][0];
-        int max = Matrix[0][0];
+    public int findMinOfMatrix(int[][] matrix) {
+        int min = matrix[0][0];
 
-        for (int[] Row : Matrix) {
-            for (int Element : Row) {
-                if (Element < min) {
-                    min = Element;
-                }
-                if (Element > max) {
-                    max = Element;
+        for (int[] row : matrix) {
+            for (int element : row) {
+                if (element < min) {
+                    min = element;
                 }
             }
         }
-
-        System.out.println("Minimum matrix element: " + min);
-        System.out.println("Maximum matrix element: " + max);
+        return min;
     }
 
-    public void calculatingArithmeticMean(int[][] Matrix) {
+    public int findMaxOfMatrix(int[][] matrix) {
+        int max = matrix[0][0];
+
+        for (int[] row : matrix) {
+            for (int element : row) {
+                if (element > max) {
+                    max = element;
+                }
+            }
+        }
+        return max;
+    }
+
+    public double calculateArithmeticMean(int[][] matrix) {
         double sum = 0;
         int counter = 0;
 
-        for (int[] Row : Matrix) {
-            for (int Element : Row) {
-                sum += Element;
+        for (int[] row : matrix) {
+            for (int element : row) {
+                sum += element;
                 counter++;
             }
         }
 
-        double arithmeticMean = sum / counter;
-        System.out.println("Arithmetic mean of the matrix: " + arithmeticMean);
+        return sum / counter;
     }
 
-    public void calculatingGeometricMean(int[][] Matrix) {
+    public double calculateGeometricMean(int[][] matrix) {
         double numbersProduct = 1;
         int rootNumber = 0;
 
-        for (int[] Row : Matrix) {
-            for (int Element : Row) {
-                numbersProduct *= Element;
+        for (int[] row : matrix) {
+            for (int element : row) {
+                numbersProduct *= element;
                 rootNumber++;
             }
         }
 
-        double geometricMean = Math.pow(numbersProduct, (double) 1 / rootNumber);
-        System.out.println("Geometric mean of the matrix: " + geometricMean);
+        return Math.pow(numbersProduct, (double) 1 / rootNumber);
+    }
+
+    private int[][] inputMatrixSize (Scanner scanner){
+        System.out.print(ROW_INPUT_TEXT);
+        int rows = scanner.nextInt();
+        System.out.print(COLUMNS_INPUT_TEXT);
+        int columns = scanner.nextInt();
+
+        if (rows <= 0 || rows > MAX_SIZE_OF_MATRIX || columns <= 0 || columns > MAX_SIZE_OF_MATRIX) {
+            System.out.println("Unsatisfactory matrix dimensions.");
+            return null;
+        }
+
+        return new int[rows][columns];
     }
 
 }

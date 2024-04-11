@@ -5,18 +5,18 @@ import java.util.List;
 
 public abstract class UniversityComponent<T> {
     private String name;
-    private List<T> SubComponentOfUniversity;
+    private List<T> subComponentOfUniversity;
     private Head head;
 
-    public UniversityComponent(String name, List<T> SubComponentOfUniversity, Head head) {
+    public UniversityComponent(String name, List<T> subComponentOfUniversity, Head head) {
         this.name = name;
-        this.SubComponentOfUniversity = SubComponentOfUniversity;
+        this.subComponentOfUniversity = subComponentOfUniversity;
         this.head = head;
     }
-    public UniversityComponent(String name, T SubComponentOfUniversity, Head head) {
+    public UniversityComponent(String name, T subComponentOfUniversity, Head head) {
         this.name = name;
-        this.SubComponentOfUniversity = new ArrayList<>();
-        this.SubComponentOfUniversity.add(SubComponentOfUniversity);
+        this.subComponentOfUniversity = new ArrayList<>();
+        this.subComponentOfUniversity.add(subComponentOfUniversity);
         this.head = head;
     }
     public String getName() {
@@ -26,16 +26,16 @@ public abstract class UniversityComponent<T> {
         this.name = name;
     }
     public List<T> getSubComponent() {
-        return SubComponentOfUniversity;
+        return subComponentOfUniversity;
     }
-    public void setSubComponent(List<T> SubComponentOfUniversity) {
-        this.SubComponentOfUniversity = SubComponentOfUniversity;
+    public void setSubComponent(List<T> subComponentOfUniversity) {
+        this.subComponentOfUniversity = subComponentOfUniversity;
     }
-    public void addSubComponent(T SubComponentOfUniversity) {
-        this.SubComponentOfUniversity.add(SubComponentOfUniversity);
+    public void addSubComponent(T subComponentOfUniversity) {
+        this.subComponentOfUniversity.add(subComponentOfUniversity);
     }
-    public void deleteSubComponent(T subComp) {
-        this.SubComponentOfUniversity.remove(subComp);
+    public void deleteSubComponent(T subComponentOfUniversity) {
+        this.subComponentOfUniversity.remove(subComponentOfUniversity);
     }
     public Head getHead() {
         return head;

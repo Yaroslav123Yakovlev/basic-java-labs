@@ -1,10 +1,10 @@
-package edu.ntudp.fit.yakovlev.lab4.view;
+package edu.ntudp.fit.yakovlev.lab3.view;
 
-import edu.ntudp.fit.yakovlev.lab4.model.*;
+import edu.ntudp.fit.yakovlev.lab3.model.*;
 
 import java.util.List;
 
-public class PrintUniversity {
+public class UniversityPrinter {
 
     public void printUniversityTree(University University) {
         Head head = University.getHead();
@@ -47,7 +47,7 @@ public class PrintUniversity {
         System.out.println(prefix + "└── " + Group.getName() + " Group, Head: "+ head.getFirstName() + " " + head.getLastName());
 
         List<Student> Students = Group.getSubComponent();
-        for (edu.ntudp.fit.yakovlev.lab4.model.Student Student : Students) {
+        for (Student Student : Students) {
             System.out.println(prefix + "    └── " + Student.getFirstName() + " " + Student.getLastName() + " (Student)");
         }
     }

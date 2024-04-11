@@ -6,17 +6,15 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class RunTest {
-
+class JsonManagerTest {
     @Test
-    void main() {
+    void JsonManagerRunTest() {
         University oldUniversity = new UniversityCreator().createTypicalUniversity();
-        JsonManager JsonManager = new JsonManager();
-        JsonManager.writeToJson(oldUniversity,"json1");
-        University newUniversity = JsonManager.readFromJson("json1");
+        JsonManager jsonManager = new JsonManager();
+        jsonManager.writeToJson(oldUniversity,"json1");
+        University newUniversity = jsonManager.readFromJson("json1");
 
         System.out.println(oldUniversity.equals(newUniversity));
         assertEquals(oldUniversity, newUniversity);
-
     }
 }

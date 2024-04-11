@@ -2,16 +2,16 @@ package edu.ntudp.fit.yakovlev.lab3;
 
 import edu.ntudp.fit.yakovlev.lab3.controller.UniversityCreator;
 import edu.ntudp.fit.yakovlev.lab3.model.University;
-import edu.ntudp.fit.yakovlev.lab3.view.PrintUniversity;
+import edu.ntudp.fit.yakovlev.lab3.view.UniversityPrinter;
 
 public class Run {
     public static void main(String[] args){
 
-        University UniversityOne = new UniversityCreator().createTypicalUniversity();
+        University universityOne = new UniversityCreator().createTypicalUniversity();
 
-        PrintUniversity PrintUniversity = new PrintUniversity();
+        UniversityPrinter universityPrinter = new UniversityPrinter();
 
-        PrintUniversity.printUniversityTree(UniversityOne);
+        universityPrinter.printUniversityTree(universityOne);
 
     }
 

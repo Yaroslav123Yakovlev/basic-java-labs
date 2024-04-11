@@ -5,33 +5,34 @@ import java.util.Scanner;
 public class Run {
 
     public static void main(String[] args) {
-        int[][] Matrix;
-        Scanner Scanner = new Scanner(System.in);
-        MatrixOperation MatrixOperations = new MatrixOperation();
+        int[][] matrix;
+        Scanner scanner = new Scanner(System.in);
+        MatrixOperation matrixOperations = new MatrixOperation();
 
         System.out.print("Would you like to enter the matrix manually (1) or generate it randomly (2)? : ");
-        int choice = Scanner.nextInt();
+        int choice = scanner.nextInt();
 
         if (choice == 1) {
-            Matrix = MatrixOperations.inputMatrixFromKeyboard(Scanner);
+            matrix = matrixOperations.inputMatrixFromKeyboard(scanner);
         } else if (choice == 2) {
-            Matrix = MatrixOperations.generateMatrixFromRandomNumbers(Scanner);
+            matrix = matrixOperations.generateMatrixFromRandomNumbers(scanner);
         } else {
             System.out.println("Wrong choice.");
             return;
         }
 
-        if (Matrix != null) {
+        if (matrix != null) {
             System.out.println("Matrix:");
-            MatrixOperations.printMatrixInConsole(Matrix);
-            MatrixOperations.findMinMaxOfMatrix(Matrix);
-            MatrixOperations.calculatingArithmeticMean(Matrix);
-            MatrixOperations.calculatingGeometricMean(Matrix);
+            matrixOperations.printMatrixInConsole(matrix);
+            System.out.println("Minimum matrix element: " + matrixOperations.findMinOfMatrix(matrix));
+            System.out.println("Maximum matrix element: " + matrixOperations.findMaxOfMatrix(matrix));
+            System.out.println("Arithmetic mean of matrix: " + matrixOperations.calculateArithmeticMean(matrix));
+            System.out.println("Geometric mean of matrix: " + matrixOperations.calculateGeometricMean(matrix));
         } else {
             System.out.println("Unable to create matrix.");
         }
 
-        Scanner.close();
+        scanner.close();
 
     }
 

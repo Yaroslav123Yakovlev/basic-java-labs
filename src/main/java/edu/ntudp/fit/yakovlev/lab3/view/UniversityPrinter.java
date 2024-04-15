@@ -7,7 +7,7 @@ import java.util.List;
 public class UniversityPrinter {
         public <T> void printUniversityComponentTree(UniversityComponent<T> component, String prefix) {
             Head head = component.getHead();
-            System.out.printf("%s└── %s, Head: %s %s%n", prefix, component.getName(), head.getFirstName(), head.getLastName());
+            System.out.printf("%s└── %s %s, Head: %s %s%n", prefix, component.getName(), component.getClass().getSimpleName(), head.getFirstName(), head.getLastName());
 
             List<T> subComponents = component.getSubComponent();
             for (T subComponent : subComponents) {

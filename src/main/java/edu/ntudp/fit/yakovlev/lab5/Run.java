@@ -13,16 +13,17 @@ public class Run {
                 URL_SQL_JDBC_CONNECTION,
                 USER_SQL_JDBC_CONNECTION,
                 PASSWORD_SQL_JDBC_CONNECTION
-                )
+                );
+             Scanner scanner = new Scanner(System.in)
         ){
-            Scanner scanner = new Scanner(System.in);
             SQLManager sqlManager = new SQLManager();
 
             String readyQuery = sqlManager.selectQuery(scanner);
-            if (readyQuery == null) { return; }
+            if (readyQuery == null) {
+                System.out.println("Error");
+                return;
+            }
             sqlManager.printResultSet(connection,readyQuery);
-
-            scanner.close();
 
         } catch (SQLException e) {
             e.printStackTrace();

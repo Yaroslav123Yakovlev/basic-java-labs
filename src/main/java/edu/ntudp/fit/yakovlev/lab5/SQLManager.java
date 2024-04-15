@@ -4,23 +4,28 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class SQLManager {
 
     public String selectQuery(Scanner scanner){
         System.out.print("Enter the month (0 = print all; 1-12 = print by chosen month): ");
-        int choice = scanner.nextInt();
-
-        if (choice == 0) {
-            return "SELECT * FROM students";
-        } else if (choice >= 1 & choice <= 12) {
-            return "SELECT * FROM students WHERE MONTH(birth_date) =" + choice + " ;";
-        } else {
-            System.out.println("Wrong choice.");
-            return null;
-        }
+        try {
+            int choice = scanner.nextInt();
+            if (choice == 0) {
+                return "SELECT * FROM students";
+            } else if (choice >= 1 && choice <= 12) {
+                return "SELECT * FROM students WHERE MONTH(birth_date) =" + choice + " ;";
+            } else {
+                return null;
+            }
+        } catch (InputMismatchException e){
+            scanner.next();
+            return selectQuery(scanner);
+            }
     }
+
 
     public void printResultSet(Connection connection, String readyQuery) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement(readyQuery);
